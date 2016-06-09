@@ -767,14 +767,16 @@ class OLG(object):
                         (1.0-((cvec_ss[:,:,s+1]**(-self.sigma)*we[:,:,s+1])/self.chil)\
                         **(self.mu/(1-self.mu))))**(-1.0/self.mu)
 
-                #print lhat_ss[0,:,s], (1.0-((cvec_ss[0,:,s]**\
-                        #(-self.sigma)*we[0,:,s])/self.chil)**(self.mu/(1-self.mu)))
+                
 
                 avec_ss[:,:,s+1] = np.exp(-self.g_A)*(bq_ss2[:,:,s]-cvec_ss[:,:,s]\
                         -cKvec_ss[:,:,s]*self.Kids_ss[:,:,s]+we[:,:,s]*\
                         (self.lbar_ss-lhat_ss[:,:,s])+avec_ss[:,:,s]*(1+r_ss2-self.delta))
             
-            #print lhat_ss[0,0,:]
+            print lhat_ss[0,0,:]
+            print cvec_ss[:,:,s+1]**(-self.sigma)*we[:,:,s+1]/self.chil
+            print (cvec_ss[:,:,s+1]**(-self.sigma)*we[:,:,s+1])/self.chil)\
+                        **(self.mu/(1-self.mu))
 
 
             avec_ss[:,:,s+2] = np.exp(-self.g_A)*(bq_ss2[:,:,s+1]-cvec_ss[:,:,s+1]-\
